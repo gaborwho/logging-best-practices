@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Logging best practices</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      @import url('https://fonts.cdnfonts.com/css/roboto');
+
+      body { font-family: 'Roboto'; }
+      h1, h2, h3 {
+        font-family: 'Roboto';
+        font-weight: normal;
+        color: '#233d56';
+      }
+      p {
+        margin-bottom: .5em;
+      }
+      a {
+        color: white;
+      }
+      .remark-container {
+        background-color: #002838;
+      } 
+      .remark-slide-scaler {
+        box-shadow: none;
+      }   
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; font-size: 0.5em; text-align: left; }
+      .remark-slide-content {
+        font-size: 3em;
+        padding: 1em;
+        background-color: #002838;
+        color: #fff;
+      }   
+      .remark-slide-content h1 {
+        font-size: 2em;
+      }   
+      .remark-notes p { 
+        font-size: 0.9em;
+      }   
+      .remark-slide-content img { max-width: 80%; }
+      .remark-slide-number { font-size: 0.5em; }
+      .small-image img { width: 40%; }
+      .topic { opacity: 0.5; position: absolute; width: 100%; top: 0.2em; left: 0 }
+      ul, li { text-align: left; }
+      .red { color: red; }
+      .green { color: #41ba77; }
+      .yellow { color: #d9e506; }
+      .blue { color: #6984d1; }
+      .big { font-size: 2em; }
+      /* Two-column layout */
+      .left-column {
+        width: 25%;
+        height: 92%;
+        float: left;
+      }
+      .right-column {
+        width: 70%;
+        float: right;
+        padding-top: 1em;
+      }
+    
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Best practices in logging
+
+---
+
+# Agenda
+
+WHY  
+HOW  
+WHAT
+WHEN  
+
+---
+
+# WHY
+monitoring  
+debugging  
+no silver bullet
+---
+.left-column[
+# WHY
+]
+.right-column[
+monitoring
+
+![](./monitoring.png)
+]
+---
+.left-column[
+# WHY
+]
+.right-column[
+debugging
+
+![](./debugging.png)
+]
+---
+.left-column[
+# WHY
+]
+.right-column[
+no silver bullet
+]
+---
+# HOW
+machine parseable  
+human parseable  
+testing  
+logstash/stack
+---
+.left-column[
+# HOW
+]
+.right-column[
+machine parseable
+
+use universal time format  
+use a library  
+use JSON  
+]
+---
+.left-column[
+# HOW
+]
+.right-column[
+machine parseable: time format
+
+1649410662  
+2022-04-08T18:22:42+08:45
+
+ISO-8601  
+2022-04-08T09:37:42Z
+]
+---
+.left-column[
+# HOW
+]
+.right-column[
+machine parseable: library
+
+![](./python.png)
+![](./R.png)
+]
+---
+.left-column[
+# HOW
+]
+.right-column[
+human parseable
+
+clear
+concise
+]
+---
+.left-column[
+# HOW
+]
+.right-column[
+testing
+
+is it business critical?
+
+ERROR  
+INFO
+]
+---
+.left-column[
+# HOW
+]
+.right-column[
+logstash/stack
+
+![](./elkstack.webp)
+]
+---
+# WHAT
+log level  
+context  
+unique  
+security
+---
+.left-column[
+# WHAT
+]
+.right-column[
+log level
+
+![](./python.png)
+
+configurable
+]
+---
+.left-column[
+# WHAT
+]
+.right-column[
+context
+
+traceable  
+customer id  
+job id
+]
+---
+.left-column[
+# WHAT
+]
+.right-column[
+unique
+
+![](./unique.png)
+]
+---
+.left-column[
+# WHAT NOT
+]
+.right-column[
+security
+
+PII  
+secrets
+]
+---
+# WHEN
+right amount  
+actionable
+---
+.left-column[
+# WHEN
+]
+.right-column[
+right amount
+
+entry point / exit point  
+partial results
+levels
+]
+---
+.left-column[
+# WHEN
+]
+.right-column[
+actionable
+
+audience  
+why
+]
+---
+# Sources
+https://sobolevn.me/2020/03/do-not-log  
+https://www.dataset.com/blog/the-10-commandments-of-logging/  
+https://thenewstack.io/logging-and-monitoring-why-you-need-both/
+https://www.guru99.com/elk-stack-tutorial.html
+---
+# Questions
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+        ratio: '16:9'
+      });
+    </script>
+  </body>
+</html>
